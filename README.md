@@ -2,7 +2,7 @@
 
 Unofficial API wrapper for BetterStack's [Uptime API](https://betterstack.com/docs/uptime/api/getting-started-with-uptime-api).
 
-Built with TypeScript, strongly typed and JSDoc'd.
+Built with TypeScript, strongly typed and JSDoc'd. [Documentation](https://raikasdev.github.io/betteruptime-js/)
 
 ## Installation
 
