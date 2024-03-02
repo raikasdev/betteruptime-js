@@ -1,0 +1,10 @@
+docs
+src
+test
+.env
+.eslintrc.cjs
+.gitignore
+prettier.config.js
+tsconfig.json
+tsup.config.ts
+typedoc.json

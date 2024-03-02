@@ -1,0 +1,42 @@
+{
+  "name": "betteruptime.js",
+  "description": "Strongly typed unofficial API wrapper for Better Stack's Uptime API",
+  "version": "1.0.0",
+  "homepage": "https://github.com/raikasdev/betteruptime-js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raikasdev/betteruptime-js"
+  },
+  "bugs": "https://github.com/raikasdev/betteruptime-js/issues",
+  "author": "Roni Äikäs <roni@raikas.dev>",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "generate-docs": "typedoc",
+    "tsup": "tsup"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@typescript-eslint/eslint-plugin": "^7.1.0",
+    "@typescript-eslint/parser": "^7.1.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5",
+    "typedoc": "^0.25.9"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "axios": "^1.6.7",
+    "tsup": "^8.0.2"
+  }
+}
