@@ -38,10 +38,11 @@ npm install betteruptime.js
 
 ### Status pages API
 
-- [x] Monitors
-- [ ] Monitor groups
-- [ ] Heartbeats
-- [ ] Heartbeat groups
+- [ ] Status pages
+- [ ] Status page sections
+- [ ] Status page resources
+- [ ] Status page reports
+- [ ] Status page updates
 
 ### Integrations API
 
