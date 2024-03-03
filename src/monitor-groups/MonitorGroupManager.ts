@@ -2,11 +2,14 @@ import { AxiosError, type AxiosInstance } from "axios";
 import { UptimeValidationError } from "../errors/UptimeValidationError";
 import { UptimeNotFound } from "../errors/UptimeNotFound";
 import type { Monitor } from "../monitors/Monitor";
+import type BetterUptime from "..";
 
 export class MonitorGroupManager {
   private apiClient: AxiosInstance;
-  constructor(client: AxiosInstance) {
-    this.apiClient = client;
+  private betterUptime: BetterUptime;
+  constructor(betterUptime: BetterUptime) {
+    this.apiClient = betterUptime._apiClient;
+    this.betterUptime = betterUptime;
   }
 
   /**
@@ -55,7 +58,7 @@ export class MonitorGroupManager {
       );
       const { data: monitors } = res.data;
 
-      return monitors;
+      return monitors.map(this.betterUptime.monitors._getMonitorObject);
     } catch (e) {
       if (e instanceof AxiosError && e.response?.status === 404) {
         throw new UptimeNotFound("Monitor group", monitor_group_id);

@@ -67,14 +67,23 @@ npm install betteruptime.js
 ```typescript
 const uptime = new BetterUptime("your-api-key");
 
+// Creates a new "status" (2XX status code) monitor for google.com
 const monitor = await api.monitors.create({
   monitor_type: "status",
   url: "https://google.com",
 });
 
-console.log(monitor); // -> { id: '123', type: 'monitor', attributes: { ... } }
+console.log(monitor); // -> Monitor { id: '123', type: 'monitor', attributes: { ... } }
 
+// Pause the google.com monitor
+await monitor.pause();
+
+// Only ping from EU
+monitor.attributes.regions = ["eu"];
+await monitor.save(); // Saves the changes made to attributes manually
+
+// Get all monitors
 const monitors = await api.monitors.getAll();
 
-console.log(monitors); // -> [ monitor, monitor, monitor, ... ]
+console.log(monitors); // -> [ Monitor { ... }, Monitor { ... }, Monitor { ... }, ... ]
 ```

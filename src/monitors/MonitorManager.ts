@@ -1,16 +1,20 @@
 import { AxiosError, type AxiosInstance } from "axios";
-import type { Monitor } from "./Monitor";
-import type { GetAllParams, GetAvailabilitySummary } from "./MonitorRequest";
-import type { MonitorResponseTimes } from "./MonitorResponseTimes";
-import type { MonitorAvailabilitySummary } from "./MonitorAvailabilitySummary";
-import type { NewMonitor } from "./CreateMonitor";
-import { UptimeValidationError } from "../errors/UptimeValidationError";
-import { UptimeNotFound } from "../errors/UptimeNotFound";
+import { Monitor } from "./Monitor";
+import type {
+  GetAllParams,
+  GetAvailabilitySummary,
+  BasicMonitor,
+  MonitorResponseTimes,
+  MonitorAvailabilitySummary,
+  NewMonitor,
+} from "./types";
+import { UptimeValidationError, UptimeNotFound } from "../errors";
+import type BetterUptime from "..";
 
 export class MonitorManager {
   private apiClient: AxiosInstance;
-  constructor(client: AxiosInstance) {
-    this.apiClient = client;
+  constructor(betterUptime: BetterUptime) {
+    this.apiClient = betterUptime._apiClient;
   }
 
   /**
@@ -34,7 +38,7 @@ export class MonitorManager {
     });
     const { data: monitors } = res.data;
 
-    return monitors as Monitor[];
+    return monitors.map(this._getMonitorObject);
   }
 
   /**
@@ -47,7 +51,7 @@ export class MonitorManager {
       const res = await this.apiClient.get(`/monitors/${monitor_id}`);
       const { data: monitor } = res.data;
 
-      return monitor;
+      return this._getMonitorObject(monitor);
     } catch (e) {
       if (e instanceof AxiosError && e.response?.status === 404) {
         throw new UptimeNotFound("Monitor", monitor_id);
@@ -118,7 +122,7 @@ export class MonitorManager {
       const res = await this.apiClient.post(`/monitors`, newMonitor);
       const { data: monitor } = res.data;
 
-      return monitor;
+      return this._getMonitorObject(monitor);
     } catch (e) {
       if (e instanceof AxiosError && e.response?.status === 422) {
         throw new UptimeValidationError(e.response?.data.errors ?? {});
@@ -145,7 +149,7 @@ export class MonitorManager {
       );
       const { data: monitor } = res.data;
 
-      return monitor;
+      return this._getMonitorObject(monitor);
     } catch (e) {
       if (e instanceof AxiosError && e.response?.status === 422) {
         throw new UptimeValidationError(e.response?.data.errors ?? {});
@@ -164,5 +168,14 @@ export class MonitorManager {
     await this.apiClient.delete(`/monitors/${monitor_id}`);
 
     return true;
+  }
+
+  public _getMonitorObject(monitor: BasicMonitor) {
+    return new Monitor(
+      this,
+      monitor.id,
+      monitor.attributes,
+      monitor.relationships,
+    );
   }
 }

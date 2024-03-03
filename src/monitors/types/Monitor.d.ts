@@ -13,16 +13,19 @@ export type Monitor = {
   /**
    * Relationships to other objects.
    */
-  relationships: {
+  relationships?: MonitorRelationships;
+};
+
+// This field is completely undocumented, so well mark everything as optional.
+export type MonitorRelationships = {
+  /**
+   * Relationship to escalation policy
+   */
+  policy?: {
     /**
-     * Relationship to escalation policy
+     * ID of the escalation policy. Might also be the escalation policy object?
      */
-    policy: {
-      /**
-       * ID of the escalation policy. Might also be the escalation policy object?
-       */
-      data: string | null;
-    };
+    data?: string | null;
   };
 };
 

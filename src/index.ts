@@ -10,7 +10,7 @@ export class BetterUptime {
   /**
    * The axios API client
    */
-  private apiClient: AxiosInstance;
+  public readonly _apiClient: AxiosInstance;
 
   /**
    * The monitor manager
@@ -32,7 +32,7 @@ export class BetterUptime {
      */
     const isBun = typeof Bun !== "undefined";
 
-    this.apiClient = axios.create({
+    this._apiClient = axios.create({
       baseURL: "https://uptime.betterstack.com/api/v2/",
       headers: {
         Accept: "application/vnd.api+json",
@@ -41,8 +41,8 @@ export class BetterUptime {
       },
     });
 
-    this.monitorManager = new MonitorManager(this.apiClient);
-    this.monitorGroupManager = new MonitorGroupManager(this.apiClient);
+    this.monitorManager = new MonitorManager(this);
+    this.monitorGroupManager = new MonitorGroupManager(this);
   }
 
   /**
@@ -60,10 +60,4 @@ export class BetterUptime {
   }
 }
 
-// For docs
-export { MonitorManager, MonitorGroupManager };
-
-export type * from "./betteruptime";
-
-// For convenience
 export default BetterUptime;

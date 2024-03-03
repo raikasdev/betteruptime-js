@@ -1,7 +1,7 @@
 {
   "name": "betteruptime.js",
   "description": "Strongly typed unofficial API wrapper for Better Stack's Uptime API",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "homepage": "https://github.com/raikasdev/betteruptime-js",
   "repository": {
     "type": "git",
@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "axios": "^1.6.7",
+    "deep-object-diff": "^1.1.9",
     "tsup": "^8.0.2"
   }
 }

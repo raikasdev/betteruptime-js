@@ -25,7 +25,7 @@ export type NewMonitor = {
   /**
    * The Id of the monitor group that your monitor is part of. Set this attribute if you want to add this monitor to a monitor group.
    */
-  monitor_group_id?: string;
+  monitor_group_id?: string | null;
 
   /**
    * When was the last check performed. ISO date string.
@@ -99,6 +99,11 @@ export type NewMonitor = {
   request_body?: string;
 
   /**
+   * Is the monitoring paused?
+   */
+  paused?: boolean;
+
+  /**
    * When was the monitor paused. ISO date string.
    */
   paused_at?: string;
@@ -133,8 +138,6 @@ export type NewMonitor = {
    * How long should we wait after observing a failure before we start a new incident? In seconds.
    */
   confirmation_period?: number;
-
-  // Properties only in the create documentation
 
   /**
    * Should we automatically follow redirects when sending the HTTP request?
