@@ -1,4 +1,4 @@
-export type Monitor = {
+export type BasicMonitor = {
   /**
    * The id of the monitor. String representation of a number
    */
