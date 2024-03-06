@@ -2,6 +2,12 @@ import type { AxiosInstance } from "axios";
 import axios from "axios";
 import { MonitorManager } from "./monitors/MonitorManager";
 import { MonitorGroupManager } from "./monitor-groups/MonitorGroupManager";
+import { HeartbeatManager } from "./heartbeats/HeartbeatManager";
+import { CommentManager } from "./comments/CommentManager";
+import { IncidentManager } from "./incidents/IncidentManager";
+import { EscalationPolicyManager } from "./escalation-policies/EscalationPolicyManager";
+import { OncallCalendarManager } from "./oncall-calendars/OncallCalendarManager";
+import { StatusPageManager } from "./status-pages/HeartbeatManager";
 
 /**
  * Better Stack's Uptime API wrapper
@@ -21,6 +27,36 @@ export class BetterUptime {
    * The monitor group manager
    */
   private monitorGroupManager: MonitorGroupManager;
+
+  /**
+   * The heartbeat manager
+   */
+  private heartbeatManager: HeartbeatManager;
+
+  /**
+   * The heartbeat manager
+   */
+  private oncallCalendarManager: OncallCalendarManager;
+
+  /**
+   * The heartbeat manager
+   */
+  private escalationPolicyManager: EscalationPolicyManager;
+
+  /**
+   * The heartbeat manager
+   */
+  private incidentManager: IncidentManager;
+
+  /**
+   * The heartbeat manager
+   */
+  private commentManager: CommentManager;
+
+  /**
+   * The status page manager
+   */
+  private statusPageManager: StatusPageManager;
 
   /**
    * Creates new API client
@@ -43,6 +79,12 @@ export class BetterUptime {
 
     this.monitorManager = new MonitorManager(this);
     this.monitorGroupManager = new MonitorGroupManager(this);
+    this.heartbeatManager = new HeartbeatManager(this);
+    this.oncallCalendarManager = new OncallCalendarManager(this);
+    this.escalationPolicyManager = new EscalationPolicyManager(this);
+    this.incidentManager = new IncidentManager(this);
+    this.commentManager = new CommentManager(this);
+    this.statusPageManager = new StatusPageManager(this);
   }
 
   /**
@@ -57,6 +99,48 @@ export class BetterUptime {
    */
   get monitorGroups() {
     return this.monitorGroupManager;
+  }
+
+  /**
+   * Get the heartbeat manager
+   */
+  get heartbeats() {
+    return this.heartbeatManager;
+  }
+
+  /**
+   * Get the on-call calendar manager
+   */
+  get oncallCalendars() {
+    return this.oncallCalendarManager;
+  }
+
+  /**
+   * Get the escalation policy manager
+   */
+  get escalationPolicies() {
+    return this.escalationPolicyManager;
+  }
+
+  /**
+   * Get the on-call calendar manager
+   */
+  get incidents() {
+    return this.incidentManager;
+  }
+
+  /**
+   * Get the on-call calendar manager
+   */
+  get comments() {
+    return this.commentManager;
+  }
+
+  /**
+   * Get the status page manager
+   */
+  get statusPages() {
+    return this.statusPageManager;
   }
 }
 

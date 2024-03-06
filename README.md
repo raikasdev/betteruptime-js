@@ -2,7 +2,9 @@
 
 Unofficial API wrapper for BetterStack's [Uptime API](https://betterstack.com/docs/uptime/api/getting-started-with-uptime-api).
 
-Built with TypeScript, strongly typed and JSDoc'd. [Documentation](https://raikasdev.github.io/betteruptime-js/)
+Built with TypeScript, strongly typed\* and JSDoc'd. [Documentation](https://raikasdev.github.io/betteruptime-js/)
+
+\* = This project is still work-in-progress, and some APIs are not fully typed yet. See more in the [API Support][#api-support] section.
 
 ## Installation
 
@@ -18,34 +20,42 @@ bun install betteruptime.js
 npm install betteruptime.js
 ```
 
-## Support
+## API Support
 
-\* = implemented, no typings
+Currently most APIs are not typed, please consult the [API documentation](https://betterstack.com/docs/uptime/api/getting-started-with-uptime-api/) for the time being.
+
+Partly or untyped APIs are marked with a `*`.
 
 ### Monitors API
 
-- [x] Monitors
-- [ ] Monitor groups\*
-- [ ] Heartbeats
-- [ ] Heartbeat groups
+- [x] Monitor
+- [x] Monitor groups\*
+- [x] Heartbeats\*
+- [x] Heartbeat groups\*
 
 ### On-call & Incidents API
 
-- [ ] On-call calendar
-- [ ] Escalation policies
-- [ ] Incidents
-- [ ] Comments
+- [x] On-call calendar\*
+- [x] Escalation policies\*
+- [x] Incidents\*
+- [x] Comments\*
 
 ### Status pages API
 
-- [ ] Status pages
+- [x] Status pages\*
 - [ ] Status page sections
 - [ ] Status page resources
 - [ ] Status page reports
 - [ ] Status page updates
 
-### Integrations API
+### Other API
 
+- [ ] Metadata
+
+### Integrations API (low priority)
+
+- [ ] Incoming webhooks
+- [ ] Email integrations
 - [ ] New Relic
 - [ ] Datadog
 - [ ] AWS CloudWatch
@@ -53,14 +63,8 @@ npm install betteruptime.js
 - [ ] Google Monitoring
 - [ ] Grafana
 - [ ] Prometheus
-- [ ] Email integrations
-- [ ] Incoming webhooks
 - [ ] Splunk On-Call integrations
 - [ ] PagerDuty
-
-### Other API
-
-- [ ] Metadata
 
 ## Getting started
 

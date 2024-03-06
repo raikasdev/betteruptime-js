@@ -34,9 +34,9 @@ export class MonitorGroupManager {
       const res = await this.apiClient.get(
         `/monitor-groups/${monitor_group_id}`,
       );
-      const { data: monitor } = res.data;
+      const { data: monitorGroup } = res.data;
 
-      return monitor;
+      return monitorGroup;
     } catch (e) {
       if (e instanceof AxiosError && e.response?.status === 404) {
         throw new UptimeNotFound("Monitor group", monitor_group_id);
@@ -74,9 +74,9 @@ export class MonitorGroupManager {
   async create(newMonitorGroup: any): Promise<any> {
     try {
       const res = await this.apiClient.post(`/monitor-groups`, newMonitorGroup);
-      const { data: monitor } = res.data;
+      const { data: monitorGroup } = res.data;
 
-      return monitor;
+      return monitorGroup;
     } catch (e) {
       if (e instanceof AxiosError && e.response?.status === 422) {
         throw new UptimeValidationError(e.response?.data.errors ?? {});
@@ -93,7 +93,7 @@ export class MonitorGroupManager {
   async update(
     monitor_group_id: string,
     newMonitorGroup: Partial<any>,
-  ): Promise<Monitor> {
+  ): Promise<any> {
     try {
       const res = await this.apiClient.patch(
         `/monitor-groups/${monitor_group_id}`,
@@ -113,7 +113,7 @@ export class MonitorGroupManager {
 
   /**
    * Permanently deletes an existing monitor group.
-   * @param {string} monitor_group_id Monitor ID you want to remove
+   * @param {string} monitor_group_id Monitor group ID you want to remove
    * @returns {Promise<boolean>} True if success
    */
   async delete(monitor_group_id: string): Promise<boolean> {

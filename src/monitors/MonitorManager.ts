@@ -13,8 +13,8 @@ import type BetterUptime from "..";
 
 export class MonitorManager {
   private apiClient: AxiosInstance;
-  constructor(betterUptime: BetterUptime) {
-    this.apiClient = betterUptime._apiClient;
+  constructor({ _apiClient }: BetterUptime) {
+    this.apiClient = _apiClient;
   }
 
   /**

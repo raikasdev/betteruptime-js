@@ -6,7 +6,7 @@ export type BasicMonitor = {
   type: "monitor";
 
   /**
-   * Attributes object - contains all the Monitor attributes.
+   * Attributes object - cfgontains all the Monitor attributes.
    */
   attributes: MonitorAttributes;
 
