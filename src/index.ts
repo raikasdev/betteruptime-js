@@ -7,7 +7,7 @@ import { CommentManager } from "./comments/CommentManager";
 import { IncidentManager } from "./incidents/IncidentManager";
 import { EscalationPolicyManager } from "./escalation-policies/EscalationPolicyManager";
 import { OncallCalendarManager } from "./oncall-calendars/OncallCalendarManager";
-import { StatusPageManager } from "./status-pages/HeartbeatManager";
+import { StatusPageManager } from "./status-pages/StatusPageManager";
 
 /**
  * Better Stack's Uptime API wrapper
