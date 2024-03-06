@@ -4,7 +4,7 @@ Unofficial API wrapper for BetterStack's [Uptime API](https://betterstack.com/do
 
 Built with TypeScript, strongly typed\* and JSDoc'd. [Documentation](https://raikasdev.github.io/betteruptime-js/)
 
-\* = This project is still work-in-progress, and some APIs are not fully typed yet. See more in the [API Support][#api-support] section.
+\* = This project is still work-in-progress, and some APIs are not fully typed yet. See more in the [API Support](https://github.com/raikasdev/betteruptime-js#api-support) section.
 
 ## Installation
 
