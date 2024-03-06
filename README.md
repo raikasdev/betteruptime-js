@@ -24,7 +24,7 @@ npm install betteruptime.js
 
 Currently most APIs are not typed, please consult the [API documentation](https://betterstack.com/docs/uptime/api/getting-started-with-uptime-api/) for the time being.
 
-Partly or untyped APIs are marked with a `*`.
+Partly or fully untyped APIs are marked with a `*`.
 
 ### Monitors API
 
