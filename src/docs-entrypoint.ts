@@ -13,5 +13,10 @@ export * from "./incidents/IncidentManager";
 export * from "./heartbeat-groups/HeartbeatGroupManager";
 export * from "./escalation-policies/EscalationPolicyManager";
 export * from "./comments/CommentManager";
+export * from "./metadata/MetadataManager";
+export * from "./status-page-reports/StatusPageReportManager";
+export * from "./status-page-resources/StatusPageResourceManager";
+export * from "./status-page-updates/StatusPageUpdateManager";
+export * from "./status-page-sections/StatusPageSectionManager";
 
 export type * from "./monitors/types";

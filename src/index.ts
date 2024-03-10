@@ -8,6 +8,11 @@ import { IncidentManager } from "./incidents/IncidentManager";
 import { EscalationPolicyManager } from "./escalation-policies/EscalationPolicyManager";
 import { OncallCalendarManager } from "./oncall-calendars/OncallCalendarManager";
 import { StatusPageManager } from "./status-pages/StatusPageManager";
+import { MetadataManager } from "./metadata/MetadataManager";
+import { StatusPageReportManager } from "./status-page-reports/StatusPageReportManager";
+import { StatusPageResourceManager } from "./status-page-resources/StatusPageResourceManager";
+import { StatusPageSectionManager } from "./status-page-sections/StatusPageSectionManager";
+import { StatusPageUpdateManager } from "./status-page-updates/StatusPageUpdateManager";
 
 /**
  * Better Stack's Uptime API wrapper
@@ -59,6 +64,31 @@ export class BetterUptime {
   private statusPageManager: StatusPageManager;
 
   /**
+   * The status page manager
+   */
+  private statusPageReportManager: StatusPageReportManager;
+
+  /**
+   * The status page manager
+   */
+  private statusPageResourceManager: StatusPageResourceManager;
+
+  /**
+   * The status page manager
+   */
+  private statusPageSectionManager: StatusPageSectionManager;
+
+  /**
+   * The status page manager
+   */
+  private statusPageUpdateManager: StatusPageUpdateManager;
+
+  /**
+   * The metadata manager
+   */
+  private metadataManager: MetadataManager;
+
+  /**
    * Creates new API client
    * @param apiKey Better Uptime API key
    */
@@ -85,6 +115,11 @@ export class BetterUptime {
     this.incidentManager = new IncidentManager(this);
     this.commentManager = new CommentManager(this);
     this.statusPageManager = new StatusPageManager(this);
+    this.statusPageReportManager = new StatusPageReportManager(this);
+    this.statusPageResourceManager = new StatusPageResourceManager(this);
+    this.statusPageSectionManager = new StatusPageSectionManager(this);
+    this.statusPageUpdateManager = new StatusPageUpdateManager(this);
+    this.metadataManager = new MetadataManager(this);
   }
 
   /**
@@ -141,6 +176,41 @@ export class BetterUptime {
    */
   get statusPages() {
     return this.statusPageManager;
+  }
+
+  /**
+   * Get the status page manager
+   */
+  get statusPageReports() {
+    return this.statusPageReportManager;
+  }
+
+  /**
+   * Get the status page manager
+   */
+  get statusPageResources() {
+    return this.statusPageResourceManager;
+  }
+
+  /**
+   * Get the status page manager
+   */
+  get statusPageSections() {
+    return this.statusPageSectionManager;
+  }
+
+  /**
+   * Get the status page manager
+   */
+  get statusPageUpdates() {
+    return this.statusPageUpdateManager;
+  }
+
+  /**
+   * Get the status page manager
+   */
+  get metadata() {
+    return this.metadataManager;
   }
 }
 

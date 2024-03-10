@@ -43,14 +43,14 @@ Partly or fully untyped APIs are marked with a `*`.
 ### Status pages API
 
 - [x] Status pages\*
-- [ ] Status page sections
-- [ ] Status page resources
-- [ ] Status page reports
-- [ ] Status page updates
+- [x] Status page sections\*
+- [x] Status page resources\*
+- [x] Status page reports\*
+- [x] Status page updates\*
 
 ### Other API
 
-- [ ] Metadata
+- [x] Metadata\*
 
 ### Integrations API (low priority)
 
